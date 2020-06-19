@@ -21,6 +21,23 @@ main {
   background-size: 100% 100%;
 }
 
+#init {
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.content-header {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: rgba(51, 51, 51, 0.7);
+}
+.content-header button {
+  margin: 0.25rem;
+}
+
 form {
   background-color: rgba(51, 51, 51, 0.7);
   padding: 1rem;
@@ -49,7 +66,17 @@ form .form-control input {
   border-radius: 0.25rem;
   border: none;
 }
-form .form-control .btn-primary {
+
+.md-4 {
+  width: 40% !important;
+}
+
+.md-auto {
+  width: auto !important;
+}
+
+.btn-primary {
+  display: inline-block;
   padding: 0.5rem;
   border-radius: 0.25rem;
   background-color: #F7931D;
@@ -58,12 +85,15 @@ form .form-control .btn-primary {
   width: 100%;
   cursor: pointer;
 }
-form .form-control .btn-secundary {
+
+.btn-secundary {
+  display: inline-block;
   padding: 0.5rem;
-  border: none;
   border-radius: 0.25rem;
   background-color: #212121;
   color: white;
+  border: none;
+  width: 100%;
   cursor: pointer;
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,19 @@
 <body>
     
     <main id="app">
-
-        <form id="login" v-if="form == true">
+        <div id="init" v-if="init">
+            <img src="img/icons/icon-512.png" alt="AppName" width="80px">
+            <div class="content-header">
+                <button type="button" @click="viewLog" class="btn-primary md-4">
+                    Ingresar
+                </button>
+                <button type="button" @click="viewReg"class="btn-primary md-4">
+                   Registrar
+                </button>
+            </div>
+          
+        </div>
+        <form id="login" v-if="form">
             <img src="img/icons/icon-512.png" alt="icon_wac" width="50px">
             <div class="form-control" v-if="register">
                 <label for="">Nombre completo</label>
@@ -44,9 +55,9 @@
             </div>
             <hr>
             <div class="form-control">
-                <button type="button" @click="viewLog" v-if="!login" class="btn-secundary">Login</button>
-                <button type="button" @click="viewReg" v-if="!register" class="btn-secundary">Registrarme</button>
-                <button type="button" @click="viewRec" v-if="!recovery" class="btn-secundary">Recuperar clave</button>
+                <button type="button" @click="viewLog" v-if="!login" class="btn-secundary md-auto">Login</button>
+                <button type="button" @click="viewReg" v-if="!register" class="btn-secundary md-auto">Registrarme</button>
+                <button type="button" @click="viewRec" v-if="!recovery" class="btn-secundary md-auto">Recuperar clave</button>
             </div>
         </form>
     </main>

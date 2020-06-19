@@ -1,0 +1,21 @@
+{
+    "name": "Web App Creator's",
+    "short_name": "WAC",
+    "description": "Creator's of Web App in 200",
+    "icons": [
+        {
+            "src": "img/icons/icon-32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "./index.html",
+    "display": "standalone",
+    "theme_color": "#F7931D",
+    "background_color": "#F2F2F2"
+}

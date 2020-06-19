@@ -35,26 +35,30 @@ if ('serviceWorker' in navigator) {
 vm0 = new Vue({
     el: "#app",
     data: {
-        form: true,
-        login: true,
+        init:true,
+        form: false,
+        login: false,
         recovery: false,
         register: false
     },
 
     methods: {
         viewReg() {
+            vm0.init = false
             vm0.form = true
             vm0.login = false
             vm0.recovery = false
             vm0.register = true
         },
         viewLog() {
+            vm0.init = false
             vm0.form = true
             vm0.login = true
             vm0.recovery = false
             vm0.register = false
         },
         viewRec() {
+            vm0.init = false
             vm0.form = true
             vm0.login = false
             vm0.recovery = true

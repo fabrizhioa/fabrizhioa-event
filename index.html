@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,61 +7,10 @@
     <link rel="shortcut icon" href="img/icons/icon-512.png" type="image/png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
-    
-    <main id="app">
-        <div id="init" v-if="init">
-            <div class="content-header">
-                <img src="./img/icons/icon-160.png" width="160px">
-                <button type="button" @click="viewLog" class="btn-primary md-4">
-                    Ingresar
-                </button>
-                <button type="button" @click="viewReg"class="btn-primary md-4">
-                   Registrar
-                </button>
-            </div>
-          
-        </div>
-        <form id="login" v-if="form">
-            <img src="img/icons/icon-512.png" alt="icon_wac" width="50px">
-            <div class="form-control" v-if="register">
-                <label for="">Nombre completo</label>
-                <input type="text"name="nombre" placeholder="EJ:Pedro Perez">
-            </div>
-            <div class="form-control" v-if="!recovery">
-                <label>Usuario:</label>
-                <input type="text" name="usuario" placeholder="Ej: PedritoD">
-            </div>
-            <div class="form-control" v-if="!recovery">
-                <label>Clave:</label>
-                <input type="password" name="clave" placeholder="Ej: 24*let29">
-            </div>
-            <div class="form-control" v-if="!login">
-                <label>Correo:</label>
-                <input type="email" name="correo" placeholder="Ej: pp2020@tucorreo.com">
-            </div>
-            <div class="form-control">
-                <button type="button" class="btn-primary" v-if="login">
-                    Ingresar
-                </button>
-                <button type="button" class="btn-primary" v-if="register">
-                    Registrar
-                </button>
-                <button type="button" class="btn-primary" v-if="recovery">
-                    Recuperar
-                </button>
-            </div>
-            <hr>
-            <div class="form-control">
-                <button type="button" @click="viewLog" v-if="!login" class="btn-secundary md-auto">Login</button>
-                <button type="button" @click="viewReg" v-if="!register" class="btn-secundary md-auto">Registrarme</button>
-                <button type="button" @click="viewRec" v-if="!recovery" class="btn-secundary md-auto">Recuperar clave</button>
-            </div>
-        </form>
-    </main>
-    <script src="js/vue.js"></script>
+    <img src="img/Title.png" alt="Title" width="500" height="500">
+    <h2>Bienvenidos</h2>
     <script src="js/main.js"></script>
 </body>
 </html>

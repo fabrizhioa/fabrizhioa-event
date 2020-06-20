@@ -1,20 +1,9 @@
 const cache_name = "cache-v1";
 const urlsToCache = [
-    //General
     './',
-    './index.html',
-    //Estilos
     './css/main.css',
-    './css/fontawesome.css',
-    //JavaScript
     './js/main.js',
-    './js/vue.js',
-
-    //Imagenes
     './img/Title.png',
-    './img/icons/icon-512.png',
-    './img/icons/icon-32.png',
-    './img/wallpaper_1.jpg',
 ]
 
 self.addEventListener('install', function(event){

@@ -5,95 +5,15 @@
 }
 
 body {
+  width: 100%;
+  min-height: 100vh;
   background: #f2f2f2;
+  display: grid;
 }
 
 img {
   align-self: center;
   margin: 0 auto;
-}
-
-main {
-  width: 100%;
-  min-height: 100vh;
-  display: grid;
-  background: url("../img/wallpaper_1.jpg");
-  background-size: 100% 100%;
-}
-
-#init {
-  width: 90%;
-  max-width: 300px;
-  text-align: center;
-  align-self: center;
-  margin: 0 auto;
-}
-
-.content-header {
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-}
-.content-header button {
-  margin: 0.25rem;
-}
-
-form {
-  background-color: rgba(51, 51, 51, 0.7);
-  padding: 1rem;
-  max-width: 300px;
-  display: grid;
-  box-shadow: 1px 1px 2px black;
-  border-radius: 4px;
-  width: 90%;
-  margin: 8px auto;
-  align-self: center;
-}
-form .form-control {
-  width: 100%;
-  padding: 4px;
-  text-align: center;
-}
-form .form-control label {
-  color: #F7931D;
-  display: block;
-  padding: 0.5rem;
-  text-align: left;
-}
-form .form-control input {
-  padding: 0.5rem;
-  width: 100%;
-  border-radius: 0.25rem;
-  border: none;
-}
-
-.md-4 {
-  width: 40% !important;
-}
-
-.md-auto {
-  width: auto !important;
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  background-color: #F7931D;
-  color: white;
-  border: none;
-  width: 100%;
-  cursor: pointer;
-}
-
-.btn-secundary {
-  display: inline-block;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  background-color: #212121;
-  color: white;
-  border: none;
-  width: 100%;
-  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

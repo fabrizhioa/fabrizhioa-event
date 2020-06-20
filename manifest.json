@@ -2,6 +2,13 @@
     "name": "Web App Creator's",
     "short_name": "WAC",
     "description": "Creator's of Web App in 200",
+    "start_url": "./?utm_source=web_app_manifest",
+    "scope": "./",
+    "lang":"es-VE",
+    "display": "standalone",
+    "theme_color": "#F15A24",
+    "background_color": "#191919",
+    "orientation": "portrait",
     "icons": [
         {
             "src": "img/icons/icon-32.png",
@@ -9,13 +16,34 @@
             "type": "image/png"
         },
         {
+            "src": "img/icons/icon-64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-160.png",
+            "sizes": "160x160",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
             "src": "img/icons/icon-512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
-    ],
-    "start_url": "./index.html",
-    "display": "standalone",
-    "theme_color": "#F7931D",
-    "background_color": "#F2F2F2"
+    ]
 }

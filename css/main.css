@@ -2,18 +2,149 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "montserrat";
 }
 
-body {
+.btn-primary {
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #F15923;
+  color: white;
+  border: none;
   width: 100%;
+  cursor: pointer;
+}
+
+.btn-secundary {
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #191919;
+  color: white;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-nav {
+  background: transparent;
+  padding: 0.5em;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #191919;
+}
+.btn-nav:hover {
+  background: rgba(25, 25, 25, 0.5);
+}
+
+main {
+  background-image: url("../img/Wallpaper_1.jpg");
+  background-size: 100% 100%;
   min-height: 100vh;
-  background: #f2f2f2;
+  width: 100%;
   display: grid;
 }
 
-img {
+form {
+  padding: 8px;
+}
+form label {
+  display: block;
+  text-align: left;
+}
+form input {
+  text-align: left;
+  width: 100%;
+  padding: 8px;
+  border-radius: 0.25rem;
+  border: none;
+}
+
+header {
+  display: grid;
+  grid-template-columns: auto auto;
+  height: 60px;
+}
+
+nav {
+  grid-column: 1/-1;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: #F15923;
+}
+
+.init, .form {
+  background: rgba(51, 51, 51, 0.7);
+  border-radius: 0.5em;
+  max-width: 300px;
+  width: 80%;
   align-self: center;
   margin: 0 auto;
+  padding: 8px;
+  text-align: center;
+  color: white;
+}
+
+.md-1 {
+  display: inline-block;
+  width: 10% !important;
+}
+
+.md-2 {
+  display: inline-block;
+  width: 20% !important;
+}
+
+.md-3 {
+  display: inline-block;
+  width: 30% !important;
+}
+
+.md-4 {
+  display: inline-block;
+  width: 40% !important;
+}
+
+.md-5 {
+  display: inline-block;
+  width: 50% !important;
+}
+
+.md-6 {
+  display: inline-block;
+  width: 60% !important;
+}
+
+.md-7 {
+  display: inline-block;
+  width: 70% !important;
+}
+
+.md-8 {
+  display: inline-block;
+  width: 80% !important;
+}
+
+.md-9 {
+  display: inline-block;
+  width: 90% !important;
+}
+
+.md-10 {
+  display: inline-block;
+  width: 100% !important;
+}
+
+.md-auto {
+  width: auto !important;
+}
+
+.form-control {
+  padding: 4px;
 }
 
 /*# sourceMappingURL=main.css.map */

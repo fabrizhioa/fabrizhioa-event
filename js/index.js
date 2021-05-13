@@ -61,6 +61,7 @@ function clicked_number_change(id) {
 		this.valorSeleccionado[0] = id
 		this.valorSeleccionado[1] = document.getElementById(id).style.backgroundPosition
 		this.valorSeleccionado[2] = document.getElementById(id).getAttribute('dnrp-value')
+		document.getElementById(id).style.boxShadow = "125px 125px 1px rgba(0,0,255,0.3) inset"
 	}else{
 		//Passos para pasar el valor de el segundo click al primer click
 		document.getElementById(this.valorSeleccionado[0]).style.backgroundPosition = document.getElementById(id).style.backgroundPosition
@@ -68,6 +69,8 @@ function clicked_number_change(id) {
 		//Pasos para pasar el valor del primer click al segundo click
 		document.getElementById(id).style.backgroundPosition = this.valorSeleccionado[1]
 		document.getElementById(id).setAttribute('dnrp-value', this.valorSeleccionado[2])
+		//Devolver tamaño de primer click
+		document.getElementById(this.valorSeleccionado[0]).style.boxShadow = "0px 0px 0px blue inset"
 		//Limpiar valores utilizados
 		this.valorSeleccionado[0] = ''
 		this.valorSeleccionado[1] = ''

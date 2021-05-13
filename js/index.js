@@ -1,5 +1,5 @@
 var datos
-var valorSeleccionado = [0,0]
+var valorSeleccionado = [0,0,0]
 
 
 
@@ -27,12 +27,13 @@ function clicked_norobot(){
 		.then((data) => {
 			datos=data
 			let valoresUsados = [0,0,0,0]
+			let posiciones = ['0px 0px','125px 0px','0 125px','125px 125px']
 			for (var i = 0; i < 4; i++) {
 				let valor
 				let isValorUsado
 				let nombreElemento = 'box'+i
 				let nombreValue
-
+				let elemento = document.getElementById(nombreElemento)
 				do{
 					valor = Math.floor(Math.random() * 4 ) + 1
 			    	isValorUsado = valoresUsados[0] == valor || valoresUsados[1] == valor || valoresUsados[2] == valor || valoresUsados[3] == valor
@@ -41,7 +42,10 @@ function clicked_norobot(){
 				valoresUsados[i] = valor
 				nombreValue = 'value0'+valor
 
-				document.getElementById(nombreElemento).style.backgroundColor = data[nombreValue]
+				elemento.setAttribute('dnrp-value',data[nombreValue])
+				elemento.style.backgroundImage = "url('"+data['banner']+"')"
+				elemento.style.backgroundPosition = posiciones[valor-1]
+				elemento.style.backgroundSize = "250px 250px"
 			}
 		})
 		.catch((err) => {
@@ -53,19 +57,26 @@ function clicked_norobot(){
 
 
 function clicked_number_change(id) {
-	if(this.valorSeleccionado[0] == '' && this.valorSeleccionado[1] == ''){
+	if(this.valorSeleccionado[0] == '' && this.valorSeleccionado[1] == '' && this.valorSeleccionado[2] == ''){
 		this.valorSeleccionado[0] = id
-		this.valorSeleccionado[1] = document.getElementById(id).style.backgroundColor
+		this.valorSeleccionado[1] = document.getElementById(id).style.backgroundPosition
+		this.valorSeleccionado[2] = document.getElementById(id).getAttribute('dnrp-value')
 	}else{
-		document.getElementById(this.valorSeleccionado[0]).style.backgroundColor = document.getElementById(id).style.backgroundColor
-		document.getElementById(id).style.backgroundColor = this.valorSeleccionado[1]
+		//Passos para pasar el valor de el segundo click al primer click
+		document.getElementById(this.valorSeleccionado[0]).style.backgroundPosition = document.getElementById(id).style.backgroundPosition
+		document.getElementById(this.valorSeleccionado[0]).setAttribute('dnrp-value', document.getElementById(id).getAttribute('dnrp-value'))
+		//Pasos para pasar el valor del primer click al segundo click
+		document.getElementById(id).style.backgroundPosition = this.valorSeleccionado[1]
+		document.getElementById(id).setAttribute('dnrp-value', this.valorSeleccionado[2])
+		//Limpiar valores utilizados
 		this.valorSeleccionado[0] = ''
 		this.valorSeleccionado[1] = ''
+		this.valorSeleccionado[2] = ''
 	}
 }
 
 function send_verify(){
-	let send_result = document.getElementById('box0').style.backgroundColor + document.getElementById('box1').style.backgroundColor + document.getElementById('box2').style.backgroundColor + document.getElementById('box3').style.backgroundColor
+	let send_result = document.getElementById('box0').getAttribute('dnrp-value') + document.getElementById('box1').getAttribute('dnrp-value') +document.getElementById('box2').getAttribute('dnrp-value') +document.getElementById('box3').getAttribute('dnrp-value') 
 	isVerify = send_result == datos['result']
 	if(isVerify){
 		alert('NoRobot verificado')

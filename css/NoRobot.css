@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+#NoRobotPlay {
+	padding: 4px;
+	font-family: 'Comfortaa', cursive;
+	font-weight: 400;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	width:250px;
+}
+
+
+#NoRobotPlay img, #NoRobotPlay div {
+	align-self: center
+}
+#NoRobotPlay p {
+	font-size: 8px;
+	
+}
+
+#NoRobotPlay a {
+	text-decoration: none
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(361deg);
+	}
+}
+
+
+#btnVerificar {
+	padding: 6px;
+	border: 1px solid blue;
+	border-bottom: 2px solid blue;
+	background: skyblue;
+	color: white;
+}

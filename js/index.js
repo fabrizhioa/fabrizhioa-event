@@ -20,6 +20,35 @@ btnVerify.insertAdjacentHTML("beforeend",`
 async function clicked_norobot(){
 	document.getElementById('icon').setAttribute('src','./assets/svg/spinner.svg')
 	document.getElementById('icon').style.animation = "rotate 2s infinite linear"
+	document.getElementById('verifyText').innerHTML = 'Esperando..'
+
+
+	
+
+	await fetch('https://norobotplay-default-rtdb.firebaseio.com/tipos/OrderBy.json')
+		.then((response)=>response.json())
+		.then((data) => {
+			datos=data
+
+			let bNum = Math.floor(Math.random() * data['count'])+1
+
+			if(bNum < 10){
+				bName = 'ord0'+bNum
+			}else{
+				bName = 'ord'+bNum
+			}
+		})
+		.catch((err) => {
+			document.getElementById('icon').setAttribute('src','./assets/svg/error-check-icon.svg')
+			document.getElementById('icon').style.animation = "none"
+      		document.getElementById('verifyText').innerHTML = 'Error de conexion'
+      		console.log(err)
+      		return null
+    	})
+
+    let valoresUsados = [0,0,0,0]
+	let posiciones = ['0px 0px','125px 0px','0 125px','125px 125px']
+	let count = datos['count']
 
 	if(document.getElementById('shadow-box') == null){
 		let shadow_box = document.createElement("div")
@@ -39,48 +68,28 @@ async function clicked_norobot(){
       		</div>`)
 		document.body.appendChild(shadow_box)
 	}
-	await fetch('https://norobotplay-default-rtdb.firebaseio.com/tipos/OrderBy.json')
-		.then((response)=>response.json())
-		.then((data) => {
-			datos=data
-			let valoresUsados = [0,0,0,0]
-			let posiciones = ['0px 0px','125px 0px','0 125px','125px 125px']
-			let count = data['count']
-			let bNum = Math.floor(Math.random() * count)+1
 
-			if(bNum < 10){
-				bName = 'ord0'+bNum
-			}else{
-				bName = 'ord'+bNum
-			}
+	for (var i = 0; i < 4; i++) {
+		let valor
+		let isValorUsado
+		let nombreElemento = 'box'+i
+		let nombreValue
+		let elemento = document.getElementById(nombreElemento)
+		let nam
 
-			for (var i = 0; i < 4; i++) {
-				let valor
-				let isValorUsado
-				let nombreElemento = 'box'+i
-				let nombreValue
-				let elemento = document.getElementById(nombreElemento)
-				let nam
+		do{
+			valor = Math.floor(Math.random() * 4 ) + 1
+			   isValorUsado = valoresUsados[0] == valor || valoresUsados[1] == valor || valoresUsados[2] == valor || valoresUsados[3] == valor
+		}while(isValorUsado)
 
-				do{
-					valor = Math.floor(Math.random() * 4 ) + 1
-			    	isValorUsado = valoresUsados[0] == valor || valoresUsados[1] == valor || valoresUsados[2] == valor || valoresUsados[3] == valor
-				}while(isValorUsado)
+		valoresUsados[i] = valor
+		nombreValue = 'value0'+valor
 
-				valoresUsados[i] = valor
-				nombreValue = 'value0'+valor
-
-				elemento.setAttribute('dnrp-value',datos[bName][nombreValue])
-				elemento.style.backgroundImage = "url('"+datos[bName]['banner']+"')"
-				elemento.style.backgroundPosition = posiciones[valor-1]
-				elemento.style.backgroundSize = "250px 250px"
-			}
-		})
-		.catch((err) => {
-      		console.log('error al solicitar datos')
-      		console.log(err)
-      		return null
-    	})
+		elemento.setAttribute('dnrp-value',datos[bName][nombreValue])
+		elemento.style.backgroundImage = "url('"+datos[bName]['banner']+"')"
+		elemento.style.backgroundPosition = posiciones[valor-1]
+		elemento.style.backgroundSize = "250px 250px"
+	}
 
 	
 }
@@ -112,19 +121,19 @@ function send_verify(){
 	let send_result = document.getElementById('box0').getAttribute('dnrp-value') + document.getElementById('box1').getAttribute('dnrp-value') +document.getElementById('box2').getAttribute('dnrp-value') +document.getElementById('box3').getAttribute('dnrp-value') 
 	isVerify = send_result == datos[bName]['result']
 	if(isVerify){
-		alert('NoRobot verificado')
-		document.getElementById("shadow-box").remove()
-		datos = ''
-		valorSeleccionado = [0,0,0]
-		bName = ''
 		document.getElementById('icon').setAttribute('src','./assets/svg/check-icon.svg')
 		document.getElementById('icon').style.animation = "none"
 		document.getElementById('NoRobotPlay-btn').setAttribute('disabled',"true")
 		document.getElementById('verifyText').innerHTML = "Verificado Correctamente"
 	}else{
-		alert('NoRobot no verificado, por favor vuelva a intentarlo')
+		document.getElementById('icon').setAttribute('src','./assets/svg/error-check-icon.svg')
+		document.getElementById('icon').style.animation = "none"
+		document.getElementById('verifyText').innerHTML = "Eres un robot?<br> Vuelve a intentar"
 
-		clicked_norobot()
 	}
+	document.getElementById("shadow-box").remove()
+	datos = ''
+	valorSeleccionado = [0,0,0]
+	bName = ''
 }
 

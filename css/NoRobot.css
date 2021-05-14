@@ -8,6 +8,8 @@
 	grid-template-columns: auto auto;
 	width:250px;
 	background: linear-gradient(white, silver);
+	border-radius: 6px;
+
 }
 
 #NoRobotPlay button{
@@ -29,7 +31,8 @@
 }
 
 #NoRobotPlay a {
-	text-decoration: none
+	text-decoration: none;
+	color: #111111;
 }
 @keyframes rotate {
 	0% {
@@ -52,6 +55,7 @@
 	border-left-width: 0;
 	background: #223322;
 	color: white;
+
 }
 
 #btnVerificar:hover {

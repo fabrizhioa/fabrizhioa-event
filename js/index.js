@@ -1,21 +1,45 @@
+document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="./css/NoRobot.css">`)
+document.getElementById('NoRobotPlay').insertAdjacentHTML("beforeend", `
+					<button type="button" id="NoRobotPlay-btn" onclick="clicked_norobot()" disabled>
+						<img src="./assets/svg/spinner.svg" height="30px" id="icon">
+						<div id="verifyText" >
+							Esperando..
+						</div>
+					</button>
+					<div>
+						<img src="./assets/svg/name.svg" height="30px"/>
+						<p><a href="">Terms</a> | <a href="">Privacity</a></p>
+					</div>
+					`)
+document.getElementById('icon').style.animation = "rotate 2s infinite linear"
+
+fetch('https://norobotplay-default-rtdb.firebaseio.com/llavesPermitidas.json')
+	.then((response)=>response.json())
+	.then((data)=>{
+		let isConnected = false
+		for(let i = 1; i <= data['contador']; i++){
+			if(document.getElementById('NoRobotPlay').getAttribute("data-key") == data[i]){
+				document.getElementById('icon').setAttribute('src','./assets/svg/nocheck-icon.svg')
+				document.getElementById('icon').style.animation = "none"
+				document.getElementById('verifyText').innerHTML='Verificar<br/>No soy un robot'
+				document.getElementById('NoRobotPlay-btn').removeAttribute('disabled')
+				isConnected = true
+			}
+		}
+		if(isConnected == false){
+			document.getElementById('icon').setAttribute('src','./assets/svg/error-check-icon.svg')
+			document.getElementById('verifyText').innerHTML='Llave NRP<br/>No registrada'
+			document.getElementById('icon').style.animation = "none"
+		}
+	})
+	.catch()
+
 var datos
 var valorSeleccionado = [0,0,0]
 var bName
-document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="./css/NoRobot.css">`)
 
-var btnVerify = document.getElementById('NoRobotPlay')
-btnVerify.insertAdjacentHTML("beforeend",`
-		<button type="button" id="NoRobotPlay-btn" onclick="clicked_norobot()">
-			<img src="./assets/svg/nocheck-icon.svg" height="30px" id="icon">
-			<div id="verifyText" >
-				Verificar NoRobot
-			</div>
-		</button>
-		<div>
-			<img src="./assets/svg/name.svg" height="30px"/>
-			<p><a href="">Terms</a> | <a href="">Privacity</a></p>
-		</div>
-	`)
+
+
 
 async function clicked_norobot(){
 	document.getElementById('icon').setAttribute('src','./assets/svg/spinner.svg')
@@ -123,7 +147,7 @@ function send_verify(){
 	if(isVerify){
 		document.getElementById('icon').setAttribute('src','./assets/svg/check-icon.svg')
 		document.getElementById('icon').style.animation = "none"
-		document.getElementById('NoRobotPlay-btn').setAttribute('disabled',"true")
+		document.getElementById('NoRobotPlay-btn').setAttribute('disabled','')
 		document.getElementById('verifyText').innerHTML = "Verificado Correctamente"
 	}else{
 		document.getElementById('icon').setAttribute('src','./assets/svg/error-check-icon.svg')

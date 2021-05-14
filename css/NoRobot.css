@@ -70,3 +70,44 @@
 	color: #000;
 	cursor: not-allowed;
 }
+
+/*Edicion del cajon de verificación*/
+
+#cajon {
+
+	border-radius: 5px;
+	overflow: hidden;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 125px 125px;
+	grid-template-rows: 125px 125px;
+
+}
+
+.seleccion{
+	cursor: pointer
+}
+
+#main-cajon {
+	font-family: Arial;
+	text-align: center;
+	width: 260px;
+	padding: 5px;
+	align-self: center;
+	margin: 0 auto;
+	background: white;
+	border-radius: 5px;
+}
+
+#shadow-box {
+	position: absolute;
+	display: grid;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+}

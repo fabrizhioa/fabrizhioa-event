@@ -48,3 +48,11 @@ body {
 	height: 100%;
 	background: rgba(0,0,0,0.6);
 }
+body {
+	display: grid;
+}
+.cajon {
+	align-self: center;
+	display: inline-block;
+	margin: 0 auto;
+}

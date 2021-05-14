@@ -3,15 +3,25 @@
 #NoRobotPlay {
 	padding: 4px;
 	font-family: 'Comfortaa', cursive;
-	font-weight: 400;
+	font-weight: 300;
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: auto auto;
 	width:250px;
+	background: linear-gradient(white, silver);
 }
 
+#NoRobotPlay button{
+	cursor: pointer;
+	display: grid;
+	grid-template-columns: auto auto;
+	border: none;
+	background: none;
+
+}
 
 #NoRobotPlay img, #NoRobotPlay div {
-	align-self: center
+	align-self: center;
+	text-align: center;
 }
 #NoRobotPlay p {
 	font-size: 8px;
@@ -29,12 +39,30 @@
 		transform: rotate(361deg);
 	}
 }
-
+#cajon-btn {
+	height: 40px;
+}
 
 #btnVerificar {
+	margin: 5px;
 	padding: 6px;
-	border: 1px solid blue;
-	border-bottom: 2px solid blue;
-	background: skyblue;
+	border: 2px solid #112111;
+	border-top-width: 0;
+	border-bottom-width: 3px;
+	border-left-width: 0;
+	background: #223322;
 	color: white;
+}
+
+#btnVerificar:hover {
+	cursor: pointer;
+}
+
+#btnVerificar:active {
+	border: 0px;
+}
+
+#NoRobotPlay-btn:disabled {
+	color: #000;
+	cursor: not-allowed;
 }

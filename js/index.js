@@ -1,26 +1,24 @@
 var datos
 var valorSeleccionado = [0,0,0]
 var bName
+document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="./css/NoRobot.css">`)
 
 var btnVerify = document.getElementById('NoRobotPlay')
 btnVerify.insertAdjacentHTML("beforeend",`
-		<img src="./circle.svg" alt="insertar SVG con la etiqueta image" height="24px" id="icon">
-		<div class="btnTxt" >
-			Verificar NoRobot
-		</div>
+		<button type="button" id="NoRobotPlay-btn" onclick="clicked_norobot()">
+			<img src="./assets/svg/nocheck-icon.svg" height="30px" id="icon">
+			<div id="verifyText" >
+				Verificar NoRobot
+			</div>
+		</button>
 		<div>
-			<img src="./check-circle.svg" height="32px"/>
-			<div>NRP</div>
+			<img src="./assets/svg/name.svg" height="30px"/>
 			<p><a href="">Terms</a> | <a href="">Privacity</a></p>
 		</div>
-		<style>
-			@import url('./css/NoRobot.css')
-		</style>
 	`)
-btnVerify.setAttribute('style', "font-family: Arial; ")
 
-function clicked_norobot(){
-	document.getElementById('icon').setAttribute('src','./spinner.svg')
+async function clicked_norobot(){
+	document.getElementById('icon').setAttribute('src','./assets/svg/spinner.svg')
 	document.getElementById('icon').style.animation = "rotate 2s infinite linear"
 
 	if(document.getElementById('shadow-box') == null){
@@ -35,13 +33,13 @@ function clicked_norobot(){
     				<div class="seleccion" id="box2" onclick="clicked_number_change('box2')"></div>
     				<div class="seleccion" id="box3" onclick="clicked_number_change('box3')"></div>	
    		 		</div>
-    	 		<button type="button" id="btnVerificar" onclick="send_verify()">Send</button>
+   		 		<div id="cajon-btn">
+    	 			<button type="button" id="btnVerificar" onclick="send_verify()">Send</button>
+    	 		</div>
       		</div>`)
 		document.body.appendChild(shadow_box)
 	}
-	
-
-	fetch('https://norobotplay-default-rtdb.firebaseio.com/tipos/OrderBy.json')
+	await fetch('https://norobotplay-default-rtdb.firebaseio.com/tipos/OrderBy.json')
 		.then((response)=>response.json())
 		.then((data) => {
 			datos=data
@@ -83,6 +81,8 @@ function clicked_norobot(){
       		console.log(err)
       		return null
     	})
+
+	
 }
 
 
@@ -117,8 +117,10 @@ function send_verify(){
 		datos = ''
 		valorSeleccionado = [0,0,0]
 		bName = ''
-		document.getElementById('icon').setAttribute('src','./check-circle.svg')
+		document.getElementById('icon').setAttribute('src','./assets/svg/check-icon.svg')
 		document.getElementById('icon').style.animation = "none"
+		document.getElementById('NoRobotPlay-btn').setAttribute('disabled',"true")
+		document.getElementById('verifyText').innerHTML = "Verificado Correctamente"
 	}else{
 		alert('NoRobot no verificado, por favor vuelva a intentarlo')
 
@@ -126,10 +128,3 @@ function send_verify(){
 	}
 }
 
-function out_dnrp(){
-	document.getElementById('icon').setAttribute('src','./circle.svg')
-	document.getElementById('icon').style.animation = "no"
-	document.getElementById("shadow-box").remove()
-}
-
-document.getElementById('NoRobotPlay').addEventListener('click',clicked_norobot)

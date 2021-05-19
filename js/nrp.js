@@ -1,7 +1,7 @@
 window.addEventListener('load',preload)
 
 async function preload(){
-    document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/css%2FNoRobot.css?alt=media&token=5ef480c1-c320-4649-a9b9-a20680359b9d">`)
+    document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="https://nrpve.000webhostapp.com/css/NoRobot.css">`)
     var iButton = new Image()
     var iName = new Image()
     let box = document.createElement('div')
@@ -12,9 +12,9 @@ async function preload(){
     let inputHidden = document.createElement('input')
 	
 
-    iButton.src="https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Fspinner.svg?alt=media&token=466b6517-8cce-42e1-8add-1e1b9742b86b"
+    iButton.src="https://nrpve.000webhostapp.com/app/assets/svg/spinner.svg"
 	iButton.setAttribute("height","30px")
-    iName.src="https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Fname.svg?alt=media&token=34b389d2-fa47-420a-9e69-d47eca9bbcc9"
+    iName.src="https://nrpve.000webhostapp.com/app/assets/svg/name.svg"
 	iName.setAttribute("height","30px")
     
 	inputHidden.setAttribute("type","hidden")
@@ -37,7 +37,8 @@ async function preload(){
     box.appendChild(button)
     box.appendChild(content)
     box.appendChild(inputHidden)
-    document.getElementById('nrp').insertAdjacentElement("beforeend",box)    // document.getElementById('nrp').innerHTML=`
+    document.getElementById('nrp').insertAdjacentElement("beforeend",box)    
+	// document.getElementById('nrp').innerHTML=`
     //                     <button type="button" id="nrpvv" onclick="nrp_cv()" disabled>
     //                         <img src="https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Fspinner.svg?alt=media&token=466b6517-8cce-42e1-8add-1e1b9742b86b" height="30px" id="nrpi">
     //                         <div id="nrpvt" >
@@ -57,7 +58,7 @@ async function preload(){
 		let isConnected = false
 		for(let i = 1; i <= data['contador']; i++){
 			if(document.getElementById('nrp').getAttribute("nrp-key") == data[i]){
-				document.getElementById('nrpi').src="https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Fnocheck-icon.svg?alt=media&token=2f47961f-159c-49cf-aac9-049cfcf02213"
+				document.getElementById('nrpi').src="https://nrpve.000webhostapp.com/app/assets/svg/nocheck-icon.svg"
 				document.getElementById('nrpi').style.animation = "none"
 				document.getElementById('nrpvt').innerHTML='Verificar<br/>No soy un robot'
 				document.getElementById('nrpvv').removeAttribute('disabled')
@@ -65,7 +66,7 @@ async function preload(){
 			}
 		}
 		if(isConnected == false){
-			document.getElementById('nrpi').src='https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Ferror-check-icon.svg?alt=media&token=27c77c92-811e-4690-bd76-c10e79dd9337'
+			document.getElementById('nrpi').src='https://nrpve.000webhostapp.com/app/assets/svg/error-check-icon.svg'
 			document.getElementById('nrpvt').innerHTML='Llave NRP<br/>No registrada'
 			document.getElementById('nrpi').style.animation = "none"
             return;
@@ -83,14 +84,14 @@ var nrprst
 
 
 async function nrp_cv(){
-	document.getElementById('nrpi').src='https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Fspinner.svg?alt=media&token=466b6517-8cce-42e1-8add-1e1b9742b86b'
-	document.getElementById('nrpi').style.animation = "rotate 2s infinite linear"
+	document.getElementById('nrpi').src='https://nrpve.000webhostapp.com/app/assets/svg/spinner.svg'
 	document.getElementById('nrpvt').innerHTML = 'Esperando..'
-
+	document.getElementById('nrpi').style.animation = "rotate 2s infinite linear"
 
 	
 
 	await fetch('https://norobotplay-default-rtdb.firebaseio.com/tipos/OrderBy.json')
+	
 		.then((response)=>response.json())
 		.then((data) => {
 			datos=data
@@ -104,7 +105,7 @@ async function nrp_cv(){
 			}
 		})
 		.catch((err) => {
-			document.getElementById('nrpi').src='https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Ferror-check-icon.svg?alt=media&token=27c77c92-811e-4690-bd76-c10e79dd9337'
+			document.getElementById('nrpi').src='https://nrpve.000webhostapp.com/app/assets/svg/error-check-icon.svg'
 			document.getElementById('nrpi').style.animation = "none"
       		document.getElementById('nrpvt').innerHTML = 'Error de conexion'
       		console.log(err)
@@ -128,7 +129,7 @@ async function nrp_cv(){
     				<div class="nrpslt" id="nrpc3" onclick="nrp_cnc('nrpc3')"></div>	
    		 		</div>
    		 		<div>
-   		 			<a href="${datos[bName]['link']}" id="nrplnk">Visitar: ${datos[bName]['link']} <img src="https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Fexternal-link-alt.svg?alt=media&token=70142e5d-1001-49e9-bd99-cd4fb5bc477b" height="8px"></a>
+   		 			<a href="${datos[bName]['link']}" id="nrplnk">Visitar: ${datos[bName]['link']} <img src="https://nrpve.000webhostapp.com/app/assets/svg/external-link-alt.svg" height="8px"></a>
    		 		</div>
    		 		<div id="nrpcb">
     	 			<button type="button" id="nrpbv" onclick="nrp_sv()">Verificar</button>
@@ -190,13 +191,13 @@ function nrp_sv(){
 	let send_result = document.getElementById('nrpc0').getAttribute('dnrp-value') + document.getElementById('nrpc1').getAttribute('dnrp-value') +document.getElementById('nrpc2').getAttribute('dnrp-value') +document.getElementById('nrpc3').getAttribute('dnrp-value') 
 	isVerify = send_result == datos[bName]['result']
 	if(isVerify){
-		document.getElementById('nrpi').src='https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Fcheck-icon.svg?alt=media&token=0ccc04ae-2310-41c3-9e70-643eeb578c74'
+		document.getElementById('nrpi').src='https://nrpve.000webhostapp.com/app/assets/svg/check-icon.svg'
 		document.getElementById('nrpi').style.animation = "none"
 		document.getElementById('nrpvv').setAttribute('disabled','')
 		document.getElementById('nrpvt').innerHTML = "Verificado Correctamente"
         document.getElementById('nrpvrf').setAttribute("value","true")
 	}else{
-		document.getElementById('nrpi').src='https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/svg%2Ferror-check-icon.svg?alt=media&token=27c77c92-811e-4690-bd76-c10e79dd9337'
+		document.getElementById('nrpi').src='https://nrpve.000webhostapp.com/app/assets/svg/error-check-icon.svg'
 		document.getElementById('nrpi').style.animation = "none"
 		document.getElementById('nrpvt').innerHTML = "Eres un robot?<br> Vuelve a intentar"
 

@@ -1,7 +1,7 @@
 window.addEventListener('load',preload)
 
 async function preload(){
-    document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="https://nrpve.000webhostapp.com/css/NoRobot.css">`)
+    document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="https://nrpve.000webhostapp.com/app/css/NoRobot.css">`)
     var iButton = new Image()
     var iName = new Image()
     let box = document.createElement('div')

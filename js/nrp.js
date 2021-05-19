@@ -1,7 +1,7 @@
 window.addEventListener('load',preload)
 
 async function preload(){
-    document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="./css/NoRobot.css">`)
+    document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/norobotplay.appspot.com/o/css%2FNoRobot.css?alt=media&token=5ef480c1-c320-4649-a9b9-a20680359b9d">`)
     var iButton = new Image()
     var iName = new Image()
     let box = document.createElement('div')

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
-#NoRobotPlay {
+#nrp > div {
 	padding: 4px;
 	font-family: 'Comfortaa', cursive;
 	font-weight: 300;
@@ -9,28 +9,30 @@
 	width:250px;
 	background: linear-gradient(white, silver);
 	border-radius: 6px;
-
 }
 
-#NoRobotPlay button{
+#nrp > div > * {
+	font-family: 'Comfortaa', cursive;
+	font-weight: 300;
+}
+#nrpvv {
 	cursor: pointer;
 	display: grid;
 	grid-template-columns: auto auto;
 	border: none;
 	background: none;
-
 }
 
-#NoRobotPlay img, #NoRobotPlay div {
+#nrp img, #nrp div {
 	align-self: center;
 	text-align: center;
 }
-#NoRobotPlay p {
+#nrp p {
 	font-size: 8px;
 	
 }
 
-#NoRobotPlay a {
+#nrp a {
 	text-decoration: none;
 	color: #111111;
 }
@@ -42,11 +44,11 @@
 		transform: rotate(361deg);
 	}
 }
-#cajon-btn {
+#nrpcb {
 	height: 40px;
 }
 
-#btnVerificar {
+#nrpbv {
 	margin: 5px;
 	padding: 6px;
 	border: 2px solid #112111;
@@ -58,22 +60,22 @@
 
 }
 
-#btnVerificar:hover {
+#nrpbv:hover {
 	cursor: pointer;
 }
 
-#btnVerificar:active {
+#nrpbv:active {
 	border: 0px;
 }
 
-#NoRobotPlay-btn:disabled {
+#nrpvv:disabled {
 	color: #000;
 	cursor: not-allowed;
 }
 
-/*Edicion del cajon de verificación*/
+/*Edicion del cajon de verificaci?*/
 
-#cajon {
+#nrpc {
 
 	border-radius: 5px;
 	overflow: hidden;
@@ -86,11 +88,11 @@
 
 }
 
-.seleccion{
+.nrpslt{
 	cursor: pointer
 }
 
-#main-cajon {
+#nrpm {
 	font-family: Arial;
 	text-align: center;
 	width: 260px;
@@ -101,7 +103,7 @@
 	border-radius: 5px;
 }
 
-#shadow-box {
+#nrpsb {
 	position: absolute;
 	display: grid;
 	top: 0;
@@ -110,4 +112,12 @@
 	min-height: 100vh;
 	height: 100%;
 	background: rgba(0,0,0,0.6);
+}
+
+#nrplnk {
+	display: block;
+	text-align: left;
+	text-decoration: none;
+	color: #112211;
+	font-size: 12px;
 }

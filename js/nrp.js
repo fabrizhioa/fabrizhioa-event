@@ -179,7 +179,7 @@ function nrp_cnc(id) {
 		document.getElementById(id).style.backgroundPosition = this.valorSeleccionado[1]
 		document.getElementById(id).setAttribute('dnrp-value', this.valorSeleccionado[2])
 		//Devolver tamaÃ±o de primer click
-		document.getElementById(this.valorSeleccionado[0]).style.boxShadow = "0px 0px 0px blue inset"
+		document.getElementById(this.valorSeleccionado[0]).style.boxShadow = "0px 0px 0px rgba(0,0,120,0.3) inset"
 		//Limpiar valores utilizados
 		this.valorSeleccionado[0] = ''
 		this.valorSeleccionado[1] = ''

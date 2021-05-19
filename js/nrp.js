@@ -170,7 +170,7 @@ function nrp_cnc(id) {
 		this.valorSeleccionado[0] = id
 		this.valorSeleccionado[1] = document.getElementById(id).style.backgroundPosition
 		this.valorSeleccionado[2] = document.getElementById(id).getAttribute('dnrp-value')
-		document.getElementById(id).style.boxShadow = "125px 125px 1px rgba(0,0,255,0.3) inset"
+		document.getElementById(id).style.boxShadow = "125px 125px 1px rgba(0,150,0,0.3) inset"
 	}else{
 		//Passos para pasar el valor de el segundo click al primer click
 		document.getElementById(this.valorSeleccionado[0]).style.backgroundPosition = document.getElementById(id).style.backgroundPosition
@@ -179,7 +179,7 @@ function nrp_cnc(id) {
 		document.getElementById(id).style.backgroundPosition = this.valorSeleccionado[1]
 		document.getElementById(id).setAttribute('dnrp-value', this.valorSeleccionado[2])
 		//Devolver tamaÃ±o de primer click
-		document.getElementById(this.valorSeleccionado[0]).style.boxShadow = "0px 0px 0px rgba(0,120,0,0.3) inset"
+		document.getElementById(this.valorSeleccionado[0]).style.boxShadow = "0px 0px 0px black inset"
 		//Limpiar valores utilizados
 		this.valorSeleccionado[0] = ''
 		this.valorSeleccionado[1] = ''

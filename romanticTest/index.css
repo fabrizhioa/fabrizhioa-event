@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.contain-vertical {
+    display: grid;
+    grid-template-rows: auto auto;
+    width: 100%;
+}
+
+.contain-horizontal {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    max-width: 350;
+    align-items: center;
+    justify-content: center;
+}
+
+.contain-input {
+    background-image: url('corazon.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+input {
+    border: none;
+    padding: 5px;
+    background-color: pink;
+    border-radius: 15px;
+    color: red;
+    margin: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    outline: 0;
+}
+
+.contain-button {
+    grid-column: 1/-1;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.contain-result {
+    width: 60px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.contain-result p {
+    color: red;
+    font-weight: 600;
+}
+
+button {
+    margin: auto;
+    background-color: red;
+    color: pink;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    border-style: outset;
+    border-color: red;
+    font-weight: 600;
+}
+button:hover {
+    cursor: pointer;
+}
+button:active {
+    border-style: inset;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+    background-image: url('background.jpg');
+}
+
+#extra-contain {
+    background-color: pink;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: none;
+}
+
+#extra-contain div {
+    padding: 30px;
+}
+
+img {
+    border-radius: 50px;
+}
